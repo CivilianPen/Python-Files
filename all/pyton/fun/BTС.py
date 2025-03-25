@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup as BS
 url = 'https://www.binance.com/ru/price/bitcoin'
 c = 'css-1bwgsh3'
 
-f = open('Values.txt','a')
+f = open('Values.txt', 'a')
 r = requests.get(url)
 html = BS(r.text,'html.parser')
 t = html.find(class_ = c)
