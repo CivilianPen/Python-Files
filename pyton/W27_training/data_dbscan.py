@@ -2,7 +2,7 @@ from turtle import *
 from math import dist
 
 
-f2 = open('27_B_18390.txt').readlines()
+f2 = open('data467.txt').readlines()
 files = [f2]
 for f in files:
     data = []
@@ -15,14 +15,14 @@ for f in files:
     while data:
         clusters.append([data.pop()])
         for point1 in clusters[-1]:
-            sosed = [point for point in data if dist(point1,point)<0.5]
+            sosed = [point for point in data if dist(point1,point)<0.6]
             clusters[-1]+=sosed
             for point2 in sosed:
                 data.remove(point2)
 
     def draw(clust):
         tracer(0)
-        k = 40
+        k = 20
         penup()
         for i in range(len(clusters)):
             color = ['blue', 'green', 'red','purple','yellow','orange','lime','aqua']
