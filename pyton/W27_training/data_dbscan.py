@@ -1,7 +1,8 @@
 from turtle import *
 from math import dist
 
-f2 = open('27-59b.txt').readlines()
+
+f2 = open('27_B_18390.txt').readlines()
 files = [f2]
 for f in files:
     data = []
@@ -14,7 +15,7 @@ for f in files:
     while data:
         clusters.append([data.pop()])
         for point1 in clusters[-1]:
-            sosed = [point for point in data if dist(point1,point)<0.4]
+            sosed = [point for point in data if dist(point1,point)<0.5]
             clusters[-1]+=sosed
             for point2 in sosed:
                 data.remove(point2)
@@ -36,8 +37,9 @@ for f in files:
                         dot(5, 'black')'''
         update()
         done()
-
-    '''centers = [[] for i in range(len(clusters))]
+    draw(clusters)
+    '''clusters = [i for i in clusters if len(i) > 30]
+    centers = [[] for i in range(len(clusters))]
     for cl in range(len(clusters)):
         #cl - index of cluster
         min_suma = 10**10
@@ -53,4 +55,3 @@ for f in files:
     py = int(((sum([y[1] for y in centers]))/len(centers))*10_000)
     print(px,py)'''
 
-    draw(clusters)

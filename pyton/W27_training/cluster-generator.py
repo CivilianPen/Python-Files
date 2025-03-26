@@ -30,9 +30,9 @@ def draw(clust):
     update()
     done()
 
-k = random.randint(0,1000)
+'''k = random.randint(0,1000)
 w = open(f'data{k}.txt','w')
 for i in data:
-    w.write(' '.join(str(x) for x in i)+'\n')
+    w.write(' '.join(str(x) for x in i)+'\n')'''
 
 
