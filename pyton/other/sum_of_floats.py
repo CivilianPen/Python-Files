@@ -47,9 +47,9 @@ def suma(a,b):
             zeros_b += b[i]
     zeros = min(zeros_a[1:], zeros_b[1:])
 
-    if (len(suma_float) < max(len(a[dot_a + 1:]), len(b[dot_b + 1:])) - len(zeros)) and zeros != '':
+    if (len(suma_float) < max(len(a[dot_a+1:]),len(b[dot_b+1:]))-len(zeros)) and zeros != '':
         return(f'{dec}.{zeros + suma_float}')
-    elif zeros != '' and float(suma_float) >= 10:
+    elif zeros != '' and float(suma_float)>=int('1'+'0'*max(len(a)-2,len(b)-2)):
         return(f'{int(dec)}.{zeros[:-1] + suma_float}')
     elif float(suma_float) >= int('1' + '0' * max(len(a) - 2, len(b) - 2)):
         return(f'{int(dec) + int(suma_float[0])}.{suma_float[1:]}')
@@ -79,9 +79,10 @@ def mult(a,b):
         suma1 = suma(suma1,x_all[i])
     for i in range(0,len(y_all)):
         suma2 = suma(suma2,y_all[i])
+        print(suma2)
     formula = suma(suma(dec+'.0','0.'+mult_float),suma(suma1,suma2))
 
-    return formula,suma2
+    return formula
 def get_sum():
     try:
         a = float(input('first >>> '))
