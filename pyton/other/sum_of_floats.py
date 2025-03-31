@@ -16,5 +16,9 @@ def sum(a,b):
     else:
         return(f'{int(dec)+int(suma_float[0])}.{suma_float[1:]}')
 while True:
-    x = list(map(str,input('enter two floats >>>').split()))
-    print(sum(x[0],x[1]))
+    try:
+        a = float(input('enter first floats >>> '))
+        b = float(input('enter second floats >>> '))
+        print(f'the answer is: {sum(a,b)}')
+    except:
+        print('invalid syntax')
