@@ -1,23 +1,57 @@
 import sys
 def choose_operation():
     all = '+-*/'
-    the_type = input('+-*/:')
+    the_type = input(f'{all}:')
     if the_type == '+':
         get_sum()
     elif the_type == '-':
         print('coming soon')
+        get_diff()
         choose_operation()
     elif the_type == '*':
         get_mult()
         choose_operation()
     elif the_type == '/':
         print('coming soon')
+        get_divi()
         choose_operation()
     else:
         if the_type != 'exit':
             choose_operation()
         else:
             sys.exit()
+def get_sum():
+    try:
+        a = float(input('first >>> '))
+        b = float(input('second >>> '))
+        print(f'the answer is: {suma(a,b)}')
+        choose_operation()
+    except:
+        print('invalid syntax')
+def get_mult():
+    try:
+        a = float(input('first >>> '))
+        b = float(input('second >>> '))
+        print(f'the answer is: {mult(a,b)}')
+        choose_operation()
+    except:
+        print('invalid syntax')
+def get_diff():
+    try:
+        a = float(input('first >>> '))
+        b = float(input('second >>> '))
+        print(f'the answer is: {diff(a, b)}')
+        choose_operation()
+    except:
+        print('invalid syntax')
+def get_divi():
+    try:
+        a = float(input('first >>> '))
+        b = float(input('second >>> '))
+        print(f'the answer is: {divi(a, b)}')
+        choose_operation()
+    except:
+        print('invalid syntax')
 def suma(a,b):
     a = str(a)
     b = str(b)
@@ -72,26 +106,12 @@ def mult(a,b):
         suma1 = suma(suma1, x_all[i])
     for i in range(0, len(y_all)):
         suma2 = suma(suma2, y_all[i])
-
     formula = suma(suma(dec + '.0', '0.' + mult_float), suma(suma1, suma2))
-
     return formula
-def get_sum():
-    try:
-        a = float(input('first >>> '))
-        b = float(input('second >>> '))
-        print(f'the answer is: {suma(a,b)}')
-        choose_operation()
-    except:
-        print('invalid syntax')
-def get_mult():
-    try:
-        a = float(input('first >>> '))
-        b = float(input('second >>> '))
-        print(f'the answer is: {mult(a,b)}')
-        choose_operation()
-    except:
-        print('invalid syntax')
+def diff(a, b):
+    return round(a-b , 5)
+def divi(a, b):
+    return round(a/b , 5)
 
 if __name__ == '__main__':
     choose_operation()
