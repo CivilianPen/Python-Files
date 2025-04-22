@@ -7,7 +7,7 @@ tovars = {
 '145':200,'149':300,'154':500,'157' :300
 }
 
-f = open('1.csv').readlines()
+f = open('1.csv', 'r', encoding='windows-1251').readlines()
 G = []
 for i in f:
     x = list(map(str,i.split(';')))

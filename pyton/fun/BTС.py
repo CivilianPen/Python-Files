@@ -7,6 +7,7 @@ c = 'css-1bwgsh3'
 
 f = open('Values.txt', 'a')
 r = requests.get(url)
+print(r)
 html = BS(r.text,'html.parser')
 t = html.find(class_ = c)
 

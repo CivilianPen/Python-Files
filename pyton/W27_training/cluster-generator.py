@@ -9,9 +9,11 @@ for count in range(len(offsets)):
         x = (random.uniform(-20, 20))
         y = (random.uniform(-20, 20))
         #if (x+y < 10 and -x-y<10) or (x-y<10 and x-y>-10):
+            #data.append([x, y])
         #if (y>sin(x) and y<sin(x)+5) and (x<20 and x>-20):
-        if (y<10/x) and (x<10/y):
-            data.append([x,y])
+            #data.append([x, y])
+        #if (y<10/x) and (x<10/y):
+            #data.append([x,y])
 
 def draw(clust):
     tracer(0)
