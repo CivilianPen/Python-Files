@@ -50,6 +50,7 @@ def get_divi():
         choose_operation()
     except:
         print('invalid syntax')
+
 def suma(a,b):
     a = str(a)
     b = str(b)
@@ -63,20 +64,9 @@ def suma(a,b):
         dot_b = b.find('.')
 
     zeros = (max(len(a[dot_a + 1:]), len(b[dot_b + 1:]))) * '0'
-    if len(a[dot_a:]) < len(b[dot_b:]):
-        count = len(b[dot_b:]) - len(a[dot_a:])
-        a += '0' * count
-    else:
-        count = len(a[dot_a:]) - len(b[dot_b:])
-        b += '0' * count
-    F = (max(len(a[dot_a + 1:]), len(b[dot_b + 1:])))
-    dec = str(int(a[:dot_a]) + int(b[:dot_b]))
-    suma_float = str(int(a[dot_a + 1:]) + int(b[dot_b + 1:]))
-    zeros = zeros[:-len(suma_float)] + suma_float
-    if zeros[:-len(suma_float)] != '' or float(suma_float) < int('1' + '0' * F):
-        return (f'{dec}.{zeros}')
-    else:
-        return (f'{int(dec) + int(zeros[0])}.{zeros[1:]}')
+    d = '1'+zeros
+    return (float(a)*int(d) + float(b)*int(d))/ int(d)
+
 def mult(a,b):
     a = str(a)
     b = str(b)
@@ -89,26 +79,9 @@ def mult(a,b):
         b += '.0'
         dot_b = b.find('.')
 
-    dec = str(int(a[:dot_a]) * int(b[:dot_b]))
-    mult_float = str(int(a[dot_a + 1:]) * int(b[dot_b + 1:]))
-    zeros = len(str((a[dot_a + 1:]))) + len(str((b[dot_b + 1:]))) - len(mult_float)
-    mult_float = zeros * '0' + mult_float
-
-    x = int(a[:dot_a])
-    y = int(b[:dot_b])
-    x_f = float('0.' + (a[dot_a + 1:]))
-    y_f = float('0.' + (b[dot_b + 1:]))
-    x_all = [y_f for i in range(x)]
-    y_all = [x_f for i in range(y)]
-    suma1 = 0
-    suma2 = 0
-    for i in range(0, len(x_all)):
-        suma1 = suma(suma1, x_all[i])
-    for i in range(0, len(y_all)):
-        suma2 = suma(suma2, y_all[i])
-
-    formula = suma( f'{dec}.{mult_float}' , suma(suma1,suma2))
-    return formula
+    zeros = (max(len(a[dot_a + 1:]), len(b[dot_b + 1:]))) * '0'
+    d = '1' + zeros
+    return (float(a)*int(d) * float(b)*int(d))/ int(d+'0')
 
 def diff(a, b):
     a = str(a)
@@ -126,24 +99,11 @@ def diff(a, b):
         dot_b = b.find('.')
 
     zeros = (max(len(a[dot_a + 1:]), len(b[dot_b + 1:]))) * '0'
-    if len(a[dot_a:]) < len(b[dot_b:]):
-        count = len(b[dot_b:]) - len(a[dot_a:])
-        a += '0' * count
-    else:
-        count = len(a[dot_a:]) - len(b[dot_b:])
-        b += '0' * count
-    F = (max(len(a[dot_a + 1:]), len(b[dot_b + 1:])))
-    dec = str(int(a[:dot_a]) - int(b[:dot_b]))
-    suma_float = str(int(a[dot_a + 1:]) - int(b[dot_b + 1:]))
-    zeros = zeros[:-len(suma_float)] + suma_float
-    if zeros[:-len(suma_float)] != '' or float(suma_float) < int('1' + '0' * F):
-        return (f'{dec}.{zeros}')
-    else:
-        return (f'{int(dec) - int(zeros[0])}.{zeros[1:]}')
+    d = '1' + zeros
+    return (float(a) * int(d) - float(b) * int(d)) / int(d)
 
 def divi(a, b):
-    return round(a/b , 5)
-
+    return a/b
 
 if __name__ == '__main__':
     choose_operation()
