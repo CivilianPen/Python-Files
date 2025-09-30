@@ -26,7 +26,7 @@ def mult(a,b):
         b += '.0'
         dot_b = b.find('.')
 
-    zeros = (min(len(a[dot_a + 1:]), len(b[dot_b + 1:]))) * '0'
+    zeros = (max(len(a[dot_a + 1:]), len(b[dot_b + 1:]))) * '0'
     d = '1' + zeros
     return ((float(a)*int(d)) * (float(b)*int(d)))/ int(d+'0')
 def diff(a, b):
