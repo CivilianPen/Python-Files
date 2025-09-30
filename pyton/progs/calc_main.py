@@ -28,7 +28,7 @@ def mult(a,b):
 
     zeros = (max(len(a[dot_a + 1:]), len(b[dot_b + 1:]))) * '0'
     d = '1' + zeros
-    return ((float(a)*int(d)) * (float(b)*int(d)))/ int(d+'0')
+    return ((float(a)*int(d)) * (float(b)*int(d)))/ int(d)**2
 def diff(a, b):
     a = str(a)
     b = str(b)
